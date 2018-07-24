@@ -103,6 +103,9 @@ if __name__ == '__main__':
             TX_data(serial_port,Send_data)
             print("TX => " + str(Send_data))
 
+            TX_data(serial_port, Send_data)
+            print("TX => " + str(Send_data))
+
         elif key == ord('2'):
             Send_data = 102
             TX_data(serial_port,Send_data)
