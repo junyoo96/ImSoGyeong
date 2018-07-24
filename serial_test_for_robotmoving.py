@@ -44,7 +44,7 @@ def RX_data(serial):
         else:
             return 0
     except:
-        Temp_count = Temp_count  + 1
+        Temp_count = Temp_count + 1
         print("Serial Not Open " + str(Temp_count))
         return 0
         pass
@@ -89,7 +89,7 @@ if __name__ == '__main__':
     # -------- Main Loop Start --------
     while True:
   
-        # 제어기에서 로봇 동작 받는 코드
+        # 제어기에서 로봇 동작 명령 받기
         Read_RX = RX_data(serial_port)
         if Read_RX <> 0:
             print("  <= RX : " + str(Read_RX))
@@ -102,6 +102,7 @@ if __name__ == '__main__':
             Send_data = 101
             TX_data(serial_port,Send_data)
             print("TX => " + str(Send_data))
+
         elif key == ord('2'):
             Send_data = 102
             TX_data(serial_port,Send_data)
