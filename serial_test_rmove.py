@@ -102,12 +102,22 @@ if __name__ == '__main__':
             Send_data = 101
 
             for i in range(0,2):
-                A=RX_data(serial_port)
-                if i>0:
-                    while A<>101 :
-                        if A==38 :
-                            TX_data(serial_port,Send_data)
-                            print("TX => " + str(Send_data))
+                print("come in!")
+                while True:
+                    A = RX_data(serial_port)
+                    print("  <= RX : " + str(A))
+
+
+                    # if A<>0:
+                    #
+                    #     if i==0:
+                    #         TX_data(serial_port, Send_data)
+                    #         print("TX => " + str(Send_data))
+                    #
+                    #     else :
+                    #         if A == 38:
+                    #             TX_data(serial_port, Send_data)
+                    #             print("TX => " + str(Send_data))
 
         elif key == ord('2'):
             Send_data = 102
