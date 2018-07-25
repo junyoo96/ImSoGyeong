@@ -107,17 +107,16 @@ if __name__ == '__main__':
                     A = RX_data(serial_port)
                     print("  <= RX : " + str(A))
 
+                    if A<>0:
 
-                    # if A<>0:
-                    #
-                    #     if i==0:
-                    #         TX_data(serial_port, Send_data)
-                    #         print("TX => " + str(Send_data))
-                    #
-                    #     else :
-                    #         if A == 38:
-                    #             TX_data(serial_port, Send_data)
-                    #             print("TX => " + str(Send_data))
+                        if i==0:
+                            TX_data(serial_port, Send_data)
+                            print("TX => " + str(Send_data))
+
+                        else :
+                            if A == 38:
+                                TX_data(serial_port, Send_data)
+                                print("TX => " + str(Send_data))
 
         elif key == ord('2'):
             Send_data = 102
