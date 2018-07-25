@@ -104,7 +104,7 @@ if __name__ == '__main__':
             for i in range(0,2):
 
                 if i>0:
-                    if Rx_data(serial_port)==38:
+                    if RX_data(serial_port)==38:
                         TX_data(serial_port,Send_data)
                         print("TX => " + str(Send_data))
 
