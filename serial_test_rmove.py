@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
             Send_data = 100
 
-            for i in range(0,4):
+            for i in range(0,10):
 
                 if i==0:
                     TX_data(serial_port, Send_data)
