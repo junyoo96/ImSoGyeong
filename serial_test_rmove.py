@@ -102,9 +102,10 @@ if __name__ == '__main__':
 
             Aa=  RX_data(serial_port)
             print("  <= RX : " + str(Aa))
+            Send_data = 101
 
             for i in range(0,5):
-                Send_data = 101
+
                 print("come in!")
                 while True:
 
@@ -125,6 +126,9 @@ if __name__ == '__main__':
                             print("TX => " + str(Send_data))
                             break
 
+            Send_data=100
+            TX_data(serial_port, Send_data)
+            print("TX => " + str(Send_data))
 
         elif key == ord('2'):
             Send_data = 102
