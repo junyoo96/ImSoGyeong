@@ -100,33 +100,39 @@ if __name__ == '__main__':
             break
         elif key == ord('1'):
 
-            Aa=  RX_data(serial_port)
-            print("  <= RX : " + str(Aa))
-            Send_data = 101
+            Send_data = 100
 
-            for i in range(0,5):
+            TX_data(serial_port, Send_data)
+            print("TX => " + str(Send_data))
 
-                print("come in!")
-                while True:
+            A_Old=RX_data(serial_port)
+            print("  <= RX : " + str(A_Old))
 
-                    if i == 0:
-                        TX_data(serial_port, Send_data)
-                        print("TX => " + str(Send_data))
-                        break
 
-                    else:
-                        while True:
-                            A_Old= RX_data(serial_port)
-                            if A_Old<>0:
-                                print("  <= RX : " + str(A_Old))
-                                break
 
-                        if A_Old == 38:
-                            TX_data(serial_port, Send_data)
-                            print("TX => " + str(Send_data))
-                            break
+            # for i in range(0,5):
+            #
+            #     print("come in!")
+            #     while True:
+            #
+            #         if i == 0:
+            #             TX_data(serial_port, Send_data)
+            #             print("TX => " + str(Send_data))
+            #             break
+            #
+            #         else:
+            #             while True:
+            #                 A_Old= RX_data(serial_port)
+            #                 if A_Old<>0:
+            #                     print("  <= RX : " + str(A_Old))
+            #                     break
+            #
+            #             if A_Old == 38:
+            #                 TX_data(serial_port, Send_data)
+            #                 print("TX => " + str(Send_data))
+            #                 break
 
-            Send_data=100
+            Send_data=255
             TX_data(serial_port, Send_data)
             print("TX => " + str(Send_data))
 
