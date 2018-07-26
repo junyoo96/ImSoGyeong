@@ -102,18 +102,24 @@ if __name__ == '__main__':
 
             Send_data = 100
 
-            TX_data(serial_port, Send_data)
-            print("TX => " + str(Send_data))
+            for i in range(0,4):
 
-
-            while True:
-                A_Old = RX_data(serial_port)
-                print("  <= RX : " + str(A_Old))
-                if A_Old==253:
-                    Send_data=240
+                if i==0:
                     TX_data(serial_port, Send_data)
-                    break
+                    print("TX => " + str(Send_data))
 
+                else:
+                    while True:
+                        A_Old = RX_data(serial_port)
+                        print("  <= RX : " + str(A_Old))
+                        if A_Old==253:
+                            Send_data=100
+                            TX_data(serial_port, Send_data)
+                            break
+
+            Send_data = 240
+            TX_data(serial_port, Send_data)
+            break
 
 
 
