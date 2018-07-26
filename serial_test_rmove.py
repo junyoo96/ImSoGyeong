@@ -105,8 +105,19 @@ if __name__ == '__main__':
             TX_data(serial_port, Send_data)
             print("TX => " + str(Send_data))
 
-            A_Old=RX_data(serial_port)
-            print("  <= RX : " + str(A_Old))
+
+            while True:
+                A_Old = RX_data(serial_port)
+                print("  <= RX : " + str(A_Old))
+                if A_Old==253:
+                    Send_data=240
+                    TX_data(serial_port, Send_data)
+                    break
+
+
+
+
+
 
 
 
@@ -132,9 +143,9 @@ if __name__ == '__main__':
             #                 print("TX => " + str(Send_data))
             #                 break
 
-            Send_data=255
-            TX_data(serial_port, Send_data)
-            print("TX => " + str(Send_data))
+            # Send_data = 240
+            # TX_data(serial_port, Send_data)
+            # print("TX => " + str(Send_data))
 
         elif key == ord('2'):
             Send_data = 102
