@@ -99,25 +99,31 @@ if __name__ == '__main__':
         if key == 27:  # ESC  Key
             break
         elif key == ord('1'):
-            Send_data = 101
-            TX_data(serial_port, Send_data)
-            print("TX => " + str(Send_data))
 
             Aa=  RX_data(serial_port)
             print("  <= RX : " + str(Aa))
-            
-            # for i in range(0,2):
-            #     print("come in!")
-            #     while True:
-            #
-            #             if i==0:
-            #                 TX_data(serial_port, Send_data)
-            #                 print("TX => " + str(Send_data))
-            #
-            #             else :
-            #                 if A == 38:
-            #                     TX_data(serial_port, Send_data)
-            #                     print("TX => " + str(Send_data))
+
+            for i in range(0,2):
+                Send_data = 101
+                print("come in!")
+                while True:
+
+                    if i == 0:
+                        TX_data(serial_port, Send_data)
+                        print("TX => " + str(Send_data))
+                        break
+
+                    else:
+                        while True:
+                            A_Old= RX_data(serial_port)
+                            if A_Old<>0:
+                                break
+
+                        if A_Old == 38:
+                            TX_data(serial_port, Send_data)
+                            print("TX => " + str(Send_data))
+                            break
+
 
         elif key == ord('2'):
             Send_data = 102
