@@ -103,7 +103,7 @@ if __name__ == '__main__':
             Aa=  RX_data(serial_port)
             print("  <= RX : " + str(Aa))
 
-            for i in range(0,2):
+            for i in range(0,5):
                 Send_data = 101
                 print("come in!")
                 while True:
@@ -117,6 +117,7 @@ if __name__ == '__main__':
                         while True:
                             A_Old= RX_data(serial_port)
                             if A_Old<>0:
+                                print("  <= RX : " + str(A_Old))
                                 break
 
                         if A_Old == 38:
