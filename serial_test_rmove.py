@@ -113,7 +113,7 @@ if __name__ == '__main__':
                 Send_data = 100
 
                 # 로봇 동작 반복문
-                for i in range(0,10):
+                for i in range(0,3):
 
                     if i==0:
                         TX_data(serial_port, Send_data)
