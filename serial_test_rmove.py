@@ -130,6 +130,10 @@ if __name__ == '__main__':
                                 print("TX => " + str(Send_data))
                                 break
 
+                # 마지막 로봇 부분 동작 멈춤 확인
+                A_Old = RX_data(serial_port)
+                print("  <= RX : " + str(A_Old))
+
                 # 로봇 동작 완전히 멈추게하기
                 Send_data = 240
                 TX_data(serial_port, Send_data)
@@ -138,6 +142,7 @@ if __name__ == '__main__':
                 #제어기에서 로봇 동작 완전히 멈췄다는 것 신호확인
                 while True:
                     WaitAllStopSignal= RX_data(serial_port)
+                    print("로봇 동작 완전 멈춤 => " + str(WaitAllStopSignal))
                     if WaitAllStopSignal==254:
                         break
 
