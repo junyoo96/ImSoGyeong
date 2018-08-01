@@ -96,8 +96,8 @@ if __name__ == '__main__':
     while True:
         # 제어기에서 통신 연결 확인
         Read_RX = RX_data(serial_port)
-        print("  <= RX : " + str(Read_RX))
         if Read_RX==239:
+            print("  <= RX : " + str(Read_RX))
             break
 
     while True:
@@ -142,8 +142,8 @@ if __name__ == '__main__':
                 #제어기에서 로봇 동작 완전히 멈췄다는 것 신호확인
                 while True:
                     WaitAllStopSignal= RX_data(serial_port)
-                    print("로봇 동작 완전 멈춤 => " + str(WaitAllStopSignal))
                     if WaitAllStopSignal==254:
+                        print("로봇 동작 완전 멈춤 => " + str(WaitAllStopSignal))
                         break
 
 
