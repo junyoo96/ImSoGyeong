@@ -94,7 +94,7 @@ if __name__ == '__main__':
     print("TX => " + str(Send_data))
 
     while True:
-        # 제어기에서 통신 연결 확인
+        # 제어기에서 라파이로 통신 연결 확인
         Read_RX = RX_data(serial_port)
         if Read_RX==239:
             print("  <= RX : " + str(Read_RX))
@@ -131,8 +131,11 @@ if __name__ == '__main__':
                                 break
 
                 # 마지막 로봇 부분 동작 멈춤 확인
-                A_Old = RX_data(serial_port)
-                print("  <= RX : " + str(A_Old))
+                while True:
+                    A_Old = RX_data(serial_port)
+                    if A_Old<>0:
+                        print("  <= RX : " + str(A_Old))
+                        break
 
                 # 로봇 동작 완전히 멈추게하기
                 Send_data = 240
