@@ -91,13 +91,13 @@ if __name__ == '__main__':
     # 라파이에서 제어기로 연결 확인
     Send_data = 239
     TX_data(serial_port, Send_data)
-    print("TX => " + str(Send_data))
+    print("라파이에서제어기연결확인 => " + str(Send_data))
 
     while True:
         # 제어기에서 라파이로 통신 연결 확인
         Read_RX = RX_data(serial_port)
         if Read_RX==239:
-            print("  <= RX : " + str(Read_RX))
+            print("  <= 제어기에서라파이로통신연결확인 : " + str(Read_RX))
             break
 
     while True:
@@ -117,36 +117,36 @@ if __name__ == '__main__':
 
                     if i==0:
                         TX_data(serial_port, Send_data)
-                        print("TX => " + str(Send_data))
+                        print("로봇 동작 명령=> " + str(Send_data))
 
                     else:
                         while True:
                             A_Old = RX_data(serial_port)
 
                             if A_Old==253:
-                                print("  <= RX : " + str(A_Old))
+                                print("<=로봇 부분 동작 종료 " + str(A_Old))
                                 Send_data=100
                                 TX_data(serial_port, Send_data)
-                                print("TX => " + str(Send_data))
+                                print("로봇 동작 명령=> " + str(Send_data))
                                 break
 
                 # 마지막 로봇 부분 동작 멈춤 확인
                 while True:
                     A_Old = RX_data(serial_port)
                     if A_Old<>0:
-                        print("  <= RX : " + str(A_Old))
+                        print("  <= 로봇 마지막 부분 동작 멈춤: " + str(A_Old))
                         break
 
                 # 로봇 동작 완전히 멈추게하기
                 Send_data = 240
                 TX_data(serial_port, Send_data)
-                print("TX => " + str(Send_data))
+                print("로봇 동작 완전히 종료 명령 => " + str(Send_data))
 
                 #제어기에서 로봇 동작 완전히 멈췄다는 것 신호확인
                 while True:
                     WaitAllStopSignal= RX_data(serial_port)
                     if WaitAllStopSignal==254:
-                        print("로봇 동작 완전 멈춤 => " + str(WaitAllStopSignal))
+                        print("<= 로봇 동작 완전 멈춤 " + str(WaitAllStopSignal))
                         break
 
 
