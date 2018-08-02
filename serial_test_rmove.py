@@ -150,37 +150,37 @@ if __name__ == '__main__':
             elif key == ord('1'):
 
                 #어떤 동작 시킬지
-                send_data = 121
+                send_data = 148
                 robot_action(send_data,3)
 
             elif key == ord('2'):
 
                 # 어떤 동작 시킬지
-                send_data = 122
+                send_data = 149
                 robot_action(send_data, 3)
 
             elif key == ord('3'):
 
                 # 어떤 동작 시킬지
-                send_data = 123
+                send_data = 150
                 robot_action(send_data, 3)
 
             elif key == ord('4'):
 
                 # 어떤 동작 시킬지
-                send_data = 130
+                send_data = 151
                 robot_action(send_data, 1)
 
             elif key == ord('5'):
 
                 # 어떤 동작 시킬지
-                send_data = 131
+                send_data = 165
                 robot_action(send_data, 1)
 
             elif key == ord('6'):
 
                 # 어떤 동작 시킬지
-                send_data = 135
+                send_data = 166
                 robot_action(send_data, 1)
 
             elif key == ord('7'):
