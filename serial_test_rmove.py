@@ -110,7 +110,7 @@ if __name__ == '__main__':
             elif key == ord('1'):
 
                 #어떤 동작 시킬지
-                Send_data = 100
+                Send_data = 101
 
                 # 로봇 동작 반복문
                 for i in range(0,3):
@@ -125,7 +125,6 @@ if __name__ == '__main__':
 
                             if A_Old==253:
                                 print("<=로봇 부분 동작 종료 : " + str(A_Old))
-                                Send_data=100
                                 TX_data(serial_port, Send_data)
                                 print("로봇 동작 명령=> : " + str(Send_data))
                                 break
