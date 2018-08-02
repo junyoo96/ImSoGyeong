@@ -150,33 +150,81 @@ if __name__ == '__main__':
             elif key == ord('1'):
 
                 #어떤 동작 시킬지
-                send_data = 101
+                send_data = 121
                 robot_action(send_data,3)
 
             elif key == ord('2'):
 
                 # 어떤 동작 시킬지
-                send_data = 102
+                send_data = 122
                 robot_action(send_data, 3)
 
             elif key == ord('3'):
 
                 # 어떤 동작 시킬지
-                send_data = 110
+                send_data = 123
                 robot_action(send_data, 3)
 
             elif key == ord('4'):
 
                 # 어떤 동작 시킬지
-                send_data = 111
-                robot_action(send_data, 3)
+                send_data = 130
+                robot_action(send_data, 1)
 
             elif key == ord('5'):
 
                 # 어떤 동작 시킬지
-                send_data = 120
+                send_data = 131
+                robot_action(send_data, 1)
+
+            elif key == ord('6'):
+
+                # 어떤 동작 시킬지
+                send_data = 135
+                robot_action(send_data, 1)
+
+            elif key == ord('7'):
+
+                # 어떤 동작 시킬지
+                send_data = 136
+                robot_action(send_data, 1)
+
+            elif key == ord('8'):
+
+                # 어떤 동작 시킬지
+                send_data = 137
+                robot_action(send_data, 1)
+
+            elif key == ord('9'):
+
+                # 어떤 동작 시킬지
+                send_data = 138
+                robot_action(send_data, 1)
+
+            elif key == ord('q'):
+
+                # 어떤 동작 시킬지
+                send_data = 139
+                robot_action(send_data, 1)
+
+            elif key == ord('w'):
+
+                # 어떤 동작 시킬지
+                send_data = 145
+                robot_action(send_data, 1)
+
+            elif key == ord('r'):
+
+                # 어떤 동작 시킬지
+                send_data = 146
                 robot_action(send_data, 3)
-               
+
+            elif key == ord('s'):
+
+                # 어떤 동작 시킬지
+                send_data = 147
+                robot_action(send_data, 1)
+
 
 
 
