@@ -49,6 +49,46 @@ def RX_data(serial):
         return 0
         pass
 # -----------------------------------------------
+# 내가 만든 동작 호출 함수
+def robot_action(send_data,retryNum):
+    # 로봇 동작 반복문
+    for i in range(0, retryNum):
+
+        if i == 0:
+            TX_data(serial_port, send_data)
+            print("로봇 동작 명령=> : " + str(send_data))
+
+        else:
+            while True:
+                A_Old = RX_data(serial_port)
+
+                if A_Old == 253:
+                    print("<=로봇 부분 동작 종료 : " + str(A_Old))
+                    TX_data(serial_port, send_data)
+                    print("로봇 동작 명령=> : " + str(send_data))
+                    break
+
+    # 마지막 로봇 부분 동작 멈춤 확인
+    while True:
+        A_Old = RX_data(serial_port)
+        if A_Old <> 0:
+            print("  <= 로봇 마지막 부분 동작 종료 : " + str(A_Old))
+            break
+
+    # 로봇 동작 완전히 멈추게하기
+    send_data = 240
+    TX_data(serial_port, send_data)
+    print("로봇 동작 완전히 종료 명령 => : " + str(send_data))
+
+    # 제어기에서 로봇 동작 완전히 멈췄다는 것 신호확인
+    while True:
+        waitAllStopSignal = RX_data(serial_port)
+        if waitAllStopSignal == 254:
+            print("<= 로봇 동작 완전 멈춤 : " + str(waitAllStopSignal))
+            break
+
+
+
 # **************************************************
 # **************************************************
 # **************************************************
@@ -89,9 +129,9 @@ if __name__ == '__main__':
     # -------- Main Loop Start --------
 
     # 라파이에서 제어기로 연결 확인
-    Send_data = 239
-    TX_data(serial_port, Send_data)
-    print("라파이에서제어기연결체크 => : " + str(Send_data))
+    send_data = 239
+    TX_data(serial_port, send_data)
+    print("라파이에서제어기연결체크 => : " + str(send_data))
 
     while True:
         # 제어기에서 라파이로 통신 연결 확인
@@ -110,43 +150,35 @@ if __name__ == '__main__':
             elif key == ord('1'):
 
                 #어떤 동작 시킬지
-                Send_data = 101
+                send_data = 101
+                robot_action(send_data,3)
 
-                # 로봇 동작 반복문
-                for i in range(0,3):
+            elif key == ord('2'):
 
-                    if i==0:
-                        TX_data(serial_port, Send_data)
-                        print("로봇 동작 명령=> : " + str(Send_data))
+                # 어떤 동작 시킬지
+                send_data = 102
+                robot_action(send_data, 3)
 
-                    else:
-                        while True:
-                            A_Old = RX_data(serial_port)
+            elif key == ord('3'):
 
-                            if A_Old==253:
-                                print("<=로봇 부분 동작 종료 : " + str(A_Old))
-                                TX_data(serial_port, Send_data)
-                                print("로봇 동작 명령=> : " + str(Send_data))
-                                break
+                # 어떤 동작 시킬지
+                send_data = 110
+                robot_action(send_data, 3)
 
-                # 마지막 로봇 부분 동작 멈춤 확인
-                while True:
-                    A_Old = RX_data(serial_port)
-                    if A_Old<>0:
-                        print("  <= 로봇 마지막 부분 동작 종료 : " + str(A_Old))
-                        break
+            elif key == ord('4'):
 
-                # 로봇 동작 완전히 멈추게하기
-                Send_data = 240
-                TX_data(serial_port, Send_data)
-                print("로봇 동작 완전히 종료 명령 => : " + str(Send_data))
+                # 어떤 동작 시킬지
+                send_data = 111
+                robot_action(send_data, 3)
 
-                #제어기에서 로봇 동작 완전히 멈췄다는 것 신호확인
-                while True:
-                    WaitAllStopSignal= RX_data(serial_port)
-                    if WaitAllStopSignal==254:
-                        print("<= 로봇 동작 완전 멈춤 : " + str(WaitAllStopSignal))
-                        break
+            elif key == ord('5'):
+
+                # 어떤 동작 시킬지
+                send_data = 120
+                robot_action(send_data, 3)
+               
+
+
 
 
 
